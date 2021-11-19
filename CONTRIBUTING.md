@@ -14,7 +14,8 @@ please fork the repo first, work on your fork repo, and then submit a pull reque
 ### Pull request process
 
 *  We recommend that you create a Git branch for each pull request (PR).  
-*  New Python code should follow the [python PEP 8 guidelines](https://www.python.org/dev/peps/pep-0008/).
+*  New Python code should follow the python [PEP 8 guidelines
+](https://www.python.org/dev/peps/pep-0008/).
 *  New R code should follow the tidyverse [style guide](http://style.tidyverse.org).
 You can use the [styler](https://CRAN.R-project.org/package=styler) package to
 apply these styles, but please don't restyle code that has nothing to do with 
