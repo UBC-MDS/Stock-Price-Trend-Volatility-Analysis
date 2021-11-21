@@ -1,7 +1,7 @@
 # author : Group 30 - Block 3 - MDS UBC 
 # date : 2021-11-19
 
-'''DDownloads csv data from a web url and saves it to a local filepath as csv file format
+'''Downloads csv data from a web url and saves it to a local filepath as csv file format
 
 Usage: download_data.py --url=<url> --out_file=<out_file>
 
