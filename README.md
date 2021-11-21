@@ -25,7 +25,7 @@ Please note that we may refine this question to be specific to certain stock cla
 
 This is an inferential question since we are not attempting to explain causality between the search and price volatility, we are simply searching for correlations. We leave predictive questions for future analysis.
 
-## Data Aanalysis Plan
+## Data Analysis Plan
 
 We will be using simple linear regression to analyse our data. Our $R^2$ value will be used to assess the strength of association, with domain-dependent interpretation that will follow from future research.
 
