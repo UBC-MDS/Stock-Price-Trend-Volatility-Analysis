@@ -15,7 +15,7 @@ def get_google_trends_data(terms_file, terms_column):
 
     # webdriver settings
     options = Options()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_experimental_option(
         "prefs",
         {
