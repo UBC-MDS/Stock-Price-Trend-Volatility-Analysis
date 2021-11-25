@@ -3,38 +3,42 @@ Assessing associations between stock return volatility and search trend volatili
 
 ## Public Dataset
 
-We will be using Google Finance data for obtaining stock volatility information. Google Finance data is available at https://www.google.com/finance/, but we will be leveraging google sheets integration with Google Finance for ease of access https://support.google.com/docs/answer/3093281?hl=en.
+We will be analysing the standard deviation of weekly search trends and weekly returns over a one-year period July 2020 to July 2021.
 
-We will be using a script to download data available through google trends. You may find this script in our repository.
+We will be using Yahoo Finance data for obtaining stock volatility information. Yahoo Finance data is available at https://ca.finance.yahoo.com/lookup 
 
-Specifically, we will use the standard deviation of daily search trends and daily returns over a one-year period July 2020 to July 2021
+For trend volatility information, we will be using data publically available through Google Trends https://trends.google.com/trends/ 
+
+We have provided a script to download the final data. You may find this script in our repository in the src folder.
+
+Putting the dataset together requires running a few scripts to transform and merge data prior to running the download script. You must run the gt-file-downloader-source.py and yf-file-downloader-source.py files to create directories with csvs for all stock tickers. Then, run stocks-price-merge.py and stocks-trends-merge.py to concatenate the stock data into one file each for returns and trends. Finally, price_trend_merger.py will merge all data into a file which is ready for analysis.
 
 ## Research Question
 
 Our inferential research question is:
 
-```Is there an association between daily google trends search volatility and daily stock return volatility?```
+```Is there an association between weekly google trends search volatility and weekly stock return volatility?```
 
-The motivation for this question is that there are certain derivative trading strategies that revolve around being able to benefit from increases or decreases in the implied volatility of the underlying stock. 
+The motivation for this question is that there are certain derivative trading strategies that revolve around being able to benefit from increases or decreases in the implied volatility of the underlying stock.
 
-Please note that we may refine this question to be specific to certain stock classes. To start, we will focus on a random subset of stocks in the S&P 500.
+Please note that we may refine this question to be specific to certain stock classes. To start, we will focus on a random subset of stocks in the S&P 500 for a one year period.
 
-This is an inferential question since we are not attempting to explain causality between the search and price volatility, we are simply searching for correlations. We leave predictive questions for future analysis. 
+This is an inferential question since we are not attempting to explain causality between the search and price volatility, we are simply searching for correlations. We leave predictive questions for future analysis.
 
-## Data Aanalysis Plan
+## Data Analysis Plan
 
-We will be using simple linear regression to analyse our data. Our R^2 value will be used to assess the strength of association, with domain-dependent interpretation that will follow from future research.
+We will be using simple linear regression to analyse our data. Our $R^2$ value will be used to assess the strength of association, with domain-dependent interpretation that will follow from future research.
 
-Our data cleaning ma involve some cleaning of the returns data, specifically converting returns to percentage formats for standardization. 
+Our data cleaning may involve some cleaning of the returns data, specifically converting returns to percentage formats for standardization.
 
 ## EDA
 ### Table
 
-Our initial EDA table will be a table in which each observation represents a stock, with columns indicating the stock ticker, the standard deviation of daily returns, and the standard deviation of daily search trends.
+Our initial EDA table will be a table in which each observation represents a stock, with columns indicating the stock ticker, the standard deviation of weekly returns, and the standard deviation of weekly search trends.
 
 ### Figure
 
-Our initial figures will involve individual histograms of the returns and search trends of each stocks. We will also produce the initial scatter plot and regression line of the data.
+Our initial figures will involve histograms of the returns volatility and search trends volatility of all stocks. We will also produce the initial scatter plot and regression line of the data.
 
 ### Overall
 
@@ -42,4 +46,4 @@ This combination of table and figures should give us a good overview of the vari
 
 ## Sharing Results
 
-The sharing of the results should be fairly straight-forward. We will likely use a jupyter notebook as it has been highlighted as a good resource for communication. We will provide some basic interpretation of our findings in this notebook.
+The sharing of the results should be fairly straight-forward. We will likely use a jupyter notebook as it has been highlighted as a good resource for communication. We will provide some basic interpretation of our findings in this notebook. Our github repo can be shared for more technically inclined individuals. Finally, we may use Xaringan as a slideshow format for sharing a presentation of results.
