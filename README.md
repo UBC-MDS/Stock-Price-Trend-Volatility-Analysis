@@ -12,6 +12,10 @@ Ultimately, we find a significant coefficient of trend volatility and reject the
 
 **Note that in statistical terms, the volatility is simply the standard deviation of returns. <https://www.investopedia.com/terms/v/volatility.asp>
 
+## Report
+
+The final report can be found [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/doc/Stock_Price_Trend_Volatility_Analysis_report.md)
+
 ## Executing the Analysis
 
 Reproducibility of results is of utmost importance in data science. In this section, we provide steps for executing our analysis.
