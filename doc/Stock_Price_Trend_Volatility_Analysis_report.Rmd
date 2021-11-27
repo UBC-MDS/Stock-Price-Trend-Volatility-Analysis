@@ -22,99 +22,91 @@ library(kableExtra)
 
 # Summary
 
-In this project, we are trying to analyze whether there any relationship between the volatility of weekly keyword interest of a stock symbol(on Google Trends) and the one  of the weekly stock return. The keywords searching interests data is originally from Google Trends, and stock price data is Yahoo Finance and Google Finance. By doing so, We analyze the standard deviation of weekly search trends and weekly returns over a one-year period July 2020 to July 2021.
+In this project, we are trying to analyze whether there any relationship between the volatility of weekly keyword interest of a stock symbol(on Google Trends) and the one  of the weekly stock return. The keywords searching interests data is originally from Google Trends[@googletrends], and stock price data is Yahoo Finance[@yahoofinance]. By doing so, We analyze the standard deviation of weekly search trends and weekly returns over a one-year period July 2020 to July 2021.
 
 # Introduction
 
-The term "stock market" often refers to one of the major stock market indexes, such as the Dow Jones Industrial Average or the Standard & Poor's 500, which includes 500 of the largest U.S. companies. It is a global network in which individuals can purchase ownership, commonly known as shares, of a public company. Companies will become public when they are listed under a stock exchange where the financial instruments are bought and sold. The motivation for this question is that there are certain derivative trading strategies that revolve around being able to benefit from increases or decreases in the implied volatility of the underlying stock.
+The term "stock market" often refers to one of the major stock market indexes, such as the Dow Jones Industrial Average or the Standard & Poor's 500, which includes 500 of the largest U.S. companies. It is a global network in which individuals can purchase ownership, commonly known as shares, of a public company. Companies will become public when they are listed under a stock exchange where the financial instruments are bought and sold. The motivation for this question is that there are certain derivative trading strategies that revolve around being able to benefit from increases or decreases in the implied volatility of the underlying stock. Investors are often interested in understanding the volatility of stock returns. Some financial derivative trading strategies try to take advantage of changes in a stocks' volatility, as certain options are sensitive to changes in implied volatility.
 
 
 # Methods
-
-Simple linear regression(SLR) is adopted to analyze our data. The null hypothesis is there is a relationship between the volatility of weekly keyword interest of a stock symbol(on Google Trends) and the one  of the weekly stock return, which the alternative hypothesis is there is NO difference between these two parties. We use $R^2$ to check on the performance of the model, and using $p-value$ in this model to see whether we can successfully reject the null hypothesis.
-
-Also, please pay attention that since this is an inferential question, we are not explaining causality between the search and price volatility, but only focus on the correlations.
-
 
 ## Data
 
 Data is originally from Google Trends, Google Finance and Yahoo Finance.
 
+We used Pandas-Profiling[@pandasprofiling2019] to git a first at the original data set. There are 5 features and total 17472 observations with no missing value and no duplicate row. `weekly_interest` refers to the interest over time data from Google Trends, which is the number of search interests of stocks (symbol variable). This number is relative to the highest point for the given period. A value of 100 is the peak popularity for the term and a value of 50 means that the term is half as popular, and a score of 0 means there was not enough data for this term. In addition, there are 52 weeks in a row and 336 different stocks taken into the data set.
+
 Our data cleaning involves some cleaning of the returns data, specifically converting returns to percentage formats for standardization.
-
-## Analysis
-
-```{r, echo = FALSE, message=FALSE, warning=FALSE}
-stock_price_trend_df <- read_csv("../data/prices_trends_merged_data.csv") |> 
-  head(10)
-kable(stock_price_trend_df,
-      caption = "Table 1. Stock prices and trends.")
-```
-
 
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
 stock_price_trend_volatility_df <- read_csv("../data/stocks-prices-trend-volatility.csv") |> 
   head(10)
 kable(stock_price_trend_volatility_df,
-      caption = "Table 2. The volatility of stock prices and trends.")
+      caption = "Table 1. The volatility of stock prices and trends.",
+      format = "markdown")
 ```
 
+## Analysis
 
+Simple linear regression(SLR) is adopted to analyze our data. The null hypothesis is there is a relationship between the volatility of weekly keyword interest of a stock symbol(on Google Trends) and the one  of the weekly stock return, which the alternative hypothesis is there is NO difference between these two parties. We use $R^2$ to check on the performance of the model, and using $p-value$ in this model to see whether we can successfully reject the null hypothesis.
 
+Also, please pay attention that since this is an inferential question, we are not explaining causality between the search and price volatility, but only focus on the correlations.
 
+The following plot show the distributions of price change volatility and stock search volume volatility. We can see a right skewed shape of both distributions.
 
-```{r fig_1, echo=FALSE, fig.cap="Figure 1. Volatility distribution", out.width = '70%'}
+```{r fig_1, echo=FALSE, fig.cap="Figure 1. Volatility distribution", out.width = '100%'}
 knitr::include_graphics("../results/volatility_distribution_plots.png")
 ```
 
 
-```{r fig_2, echo=FALSE, fig.cap="Figure 2. Regression result for volatility", out.width = '50%'}
-knitr::include_graphics("../results/stocks_prices_searchvols_reg.png")
-```
+Now we have the distributions by different sectors:
 
-
-```{r fig_3, echo=FALSE, fig.cap="Figure 3. Volatility distribution by sectors", out.width = '80%'}
+```{r fig_2, echo=FALSE, fig.cap="Figure 2. Volatility distribution by sectors", out.width = '100%'}
 knitr::include_graphics("../results/sectors_volatility_distribution_plots.png")
 ```
 
-```{r fig_4, echo=FALSE, fig.cap="Figure 4. Regression result for volatility by sectors", out.width = '80%'}
-knitr::include_graphics("../results/sectors_stocks_prices_searchvols_reg.png")
-```
 
-```{r fig_5, echo=FALSE, fig.cap="Figure 5. Regression", out.width = '50%'}
-knitr::include_graphics("../results/regression-plot.png")
-```
+Above we plot histograms of the standard deviations of returns and trends of around 330 stocks selected from the S&P500.
 
-```{r fig_6, echo=FALSE, fig.cap="Figure 6. Residuals", out.width = '50%'}
-knitr::include_graphics("../results/residuals-plot.png")
-```
+For the returns, we observe a right-skewed normal distribution. This means that while relatively normally distributed, there are more outliers on the right tail of the distribution than a pure normal distribution.
 
-
-
-
-
-As the first step...
-
-
-Secondly,
-
-
-Finally,
-
-
-How data was downloaded and processed... EDA...(Using [@tidyverse] or others for reference.)
+For the trends, we observe a more normal distribution than for the returns. There may be some evidence of bi-modality in these data, but it could simply be an artifact of the bin selection. If bi-modality exists, there seems to be a smaller cluster of stocks with low trend volatility and a larger cluster of stocks centred around medium trend volatility.
 
 
 # Results & Discussion
 
-Result...
 
+```{r fig_3, echo=FALSE, fig.cap="Figure 3. Regression", out.width = '50%'}
+knitr::include_graphics("../results/regression-plot.png")
+```
 
+```{r fig_4, echo=FALSE, fig.cap="Figure 4. Residuals", out.width = '50%'}
+knitr::include_graphics("../results/residuals-plot.png")
+```
 
-Continued...
+From the basic regression analysis, we do not observe an obvious trend in the data. It seems as if information on search trend volatility provides remarkably little information on the return volatility.
+
+While these results are not promising, as discussed in the project proposal, we can perhaps assess this relationship on particular clusters of stocks to see if a relationship exists for certain categories.
+
+```{r fig_5, echo=FALSE, fig.cap="Figure 5. Regression result for volatility by sectors", out.width = '100%'}
+knitr::include_graphics("../results/sectors_stocks_prices_searchvols_reg.png")
+```
 
 
 # Limitations & Future
 
+We have very limited features so far. Therefore, one thing We can do is to expand our features of search volatility. For example, while we use stock tickers for this EDA, we can perhaps use the company names or other adjacent searches in our volatility analysis.
+
+
+Citation test:
+
+2[@tidyverse]
+3[@stargazer]
+4[@VanderPlas2018]
+5[@mckinney-proc-scipy-2010]
+6[@pandasprofiling2019]
+7[]
+8[@docopt]
 
 # References
