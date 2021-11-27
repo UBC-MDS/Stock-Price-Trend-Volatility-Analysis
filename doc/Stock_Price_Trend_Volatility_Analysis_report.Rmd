@@ -1,0 +1,88 @@
+---
+title: "Stock_Price_Trend_Volatility_Analysis"
+author: "Group30 - Amir Abbas Shojakhani, Julien Gordon, Helin Wang"
+date: "11/26/2021"
+bibliography: references.bib
+output: 
+  html_document:
+    toc: true
+  github_document:
+    toc: true
+  md_document: 
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+```
+
+
+# Summary
+
+In this project, we are trying to analyze whether there any relationship between the volatility of weekly keyword interest of a stock symbol(on Google Trends) and the one  of the weekly stock return. The keywords searching interests data is originally from Google Trends, and stock price data is Yahoo Finance and Google Finance. By doing so, We analyze the standard deviation of weekly search trends and weekly returns over a one-year period July 2020 to July 2021.
+
+# Introduction
+
+The term "stock market" often refers to one of the major stock market indexes, such as the Dow Jones Industrial Average or the Standard & Poor's 500, which includes 500 of the largest U.S. companies. It is a global network in which individuals can purchase ownership, commonly known as shares, of a public company. Companies will become public when they are listed under a stock exchange where the financial instruments are bought and sold. The motivation for this question is that there are certain derivative trading strategies that revolve around being able to benefit from increases or decreases in the implied volatility of the underlying stock.
+
+
+# Methods
+
+Simple linear regression(SLR) is adopted to analyze our data. The null hypothesis is there is a relationship between the volatility of weekly keyword interest of a stock symbol(on Google Trends) and the one  of the weekly stock return, which the alternative hypothesis is there is NO difference between these two parties. We use $R^2$ to check on the performance of the model, and using $p-value$ in this model to see whether we can successfully reject the null hypothesis.
+
+Also, please pay attention that since this is an inferential question, we are not explaining causality between the search and price volatility, but only focus on the correlations.
+
+
+## Data
+
+Data is originally from Google Trends, Google Finance and Yahoo Finance.
+
+Our data cleaning involves some cleaning of the returns data, specifically converting returns to percentage formats for standardization.
+
+## Analysis
+
+As the first step...
+
+```{r fig_1, echo=FALSE, fig.cap="Figure 1. name1", out.width = '30%'}
+knitr::include_graphics("../results/....png")
+```
+
+Secondly,
+
+
+```{r fig_2, echo=FALSE, fig.cap="Figure 2. name2", out.width = '50%'}
+knitr::include_graphics("../results/....png")
+```
+
+Finally,
+
+```{r fig_3, echo=FALSE, fig.cap="Figure 3. name3", out.width = '60%'}
+knitr::include_graphics("../results/cor_plot.png")
+```
+
+How data was downloaded and processed... EDA...(Using [@tidyverse] or others for reference.)
+
+
+# Results & Discussion
+
+Result...
+
+```{r table_1, echo=FALSE, out.width = '60%'}
+kable(df,
+      caption="Table 1. name1")
+```
+
+Continued...
+
+```{r table_2, echo=FALSE, out.width = '60%'}
+kable(final_result_df,
+      caption="Table 2. name2")
+```
+
+# Limitations & Future
+
+
+# References
