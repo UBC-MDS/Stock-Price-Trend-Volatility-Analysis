@@ -150,10 +150,6 @@ volatility.
 
 # Results & Discussion
 
-``` r
-cat(read_lines("../data/regression-results.txt"), sep = '\n')
-```
-
     ## 
     ## Regression Results
     ## =================================================
