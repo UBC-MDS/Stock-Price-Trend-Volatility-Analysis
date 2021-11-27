@@ -45,17 +45,49 @@ Our data cleaning involves some cleaning of the returns data, specifically conve
 ## Analysis
 
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
-col <- read_csv("../data/stocks-prices-trends-change-percentages.csv") |> 
+stock_price_trend_df <- read_csv("../data/prices_trends_merged_data.csv") |> 
   head(10)
-kable(col,
-      caption = "Table 1. Percentage change of stock prices and trends.")
+kable(stock_price_trend_df,
+      caption = "Table 1. Stock prices and trends.")
+```
+
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+stock_price_trend_volatility_df <- read_csv("../data/stocks-prices-trend-volatility.csv") |> 
+  head(10)
+kable(stock_price_trend_volatility_df,
+      caption = "Table 2. The volatility of stock prices and trends.")
 ```
 
 
 
 
 
+```{r fig_1, echo=FALSE, fig.cap="Figure 1. Volatility distribution", out.width = '70%'}
+knitr::include_graphics("../results/volatility_distribution_plots.png")
+```
 
+
+```{r fig_2, echo=FALSE, fig.cap="Figure 2. Regression result for volatility", out.width = '50%'}
+knitr::include_graphics("../results/stocks_prices_searchvols_reg.png")
+```
+
+
+```{r fig_3, echo=FALSE, fig.cap="Figure 3. Volatility distribution by sectors", out.width = '80%'}
+knitr::include_graphics("../results/sectors_volatility_distribution_plots.png")
+```
+
+```{r fig_4, echo=FALSE, fig.cap="Figure 4. Regression result for volatility by sectors", out.width = '80%'}
+knitr::include_graphics("../results/sectors_stocks_prices_searchvols_reg.png")
+```
+
+```{r fig_5, echo=FALSE, fig.cap="Figure 5. Regression", out.width = '50%'}
+knitr::include_graphics("../results/regression-plot.png")
+```
+
+```{r fig_6, echo=FALSE, fig.cap="Figure 6. Residuals", out.width = '50%'}
+knitr::include_graphics("../results/residuals-plot.png")
+```
 
 
 
@@ -63,22 +95,12 @@ kable(col,
 
 As the first step...
 
-```{r fig_1, echo=FALSE, fig.cap="Figure 1. name1", out.width = '30%'}
-# knitr::include_graphics("../results/....png")
-```
 
 Secondly,
 
 
-```{r fig_2, echo=FALSE, fig.cap="Figure 2. name2", out.width = '50%'}
-# knitr::include_graphics("../results/....png")
-```
-
 Finally,
 
-```{r fig_3, echo=FALSE, fig.cap="Figure 3. name3", out.width = '60%'}
-# knitr::include_graphics("../results/cor_plot.png")
-```
 
 How data was downloaded and processed... EDA...(Using [@tidyverse] or others for reference.)
 
@@ -87,17 +109,10 @@ How data was downloaded and processed... EDA...(Using [@tidyverse] or others for
 
 Result...
 
-```{r table_1, echo=FALSE, out.width = '60%'}
-# kable(df,
-#       caption="Table 1. name1")
-```
+
 
 Continued...
 
-```{r table_2, echo=FALSE, out.width = '60%'}
-# kable(final_result_df,
-#       caption="Table 2. name2")
-```
 
 # Limitations & Future
 
