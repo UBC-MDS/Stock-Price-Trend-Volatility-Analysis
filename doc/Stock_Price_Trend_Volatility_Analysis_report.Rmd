@@ -44,23 +44,40 @@ Our data cleaning involves some cleaning of the returns data, specifically conve
 
 ## Analysis
 
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+col <- read_csv("../data/stocks-prices-trends-change-percentages.csv") |> 
+  head(10)
+kable(col,
+      caption = "Table 1. Percentage change of stock prices and trends.")
+```
+
+
+
+
+
+
+
+
+
+
+
 As the first step...
 
 ```{r fig_1, echo=FALSE, fig.cap="Figure 1. name1", out.width = '30%'}
-knitr::include_graphics("../results/....png")
+# knitr::include_graphics("../results/....png")
 ```
 
 Secondly,
 
 
 ```{r fig_2, echo=FALSE, fig.cap="Figure 2. name2", out.width = '50%'}
-knitr::include_graphics("../results/....png")
+# knitr::include_graphics("../results/....png")
 ```
 
 Finally,
 
 ```{r fig_3, echo=FALSE, fig.cap="Figure 3. name3", out.width = '60%'}
-knitr::include_graphics("../results/cor_plot.png")
+# knitr::include_graphics("../results/cor_plot.png")
 ```
 
 How data was downloaded and processed... EDA...(Using [@tidyverse] or others for reference.)
@@ -71,15 +88,15 @@ How data was downloaded and processed... EDA...(Using [@tidyverse] or others for
 Result...
 
 ```{r table_1, echo=FALSE, out.width = '60%'}
-kable(df,
-      caption="Table 1. name1")
+# kable(df,
+#       caption="Table 1. name1")
 ```
 
 Continued...
 
 ```{r table_2, echo=FALSE, out.width = '60%'}
-kable(final_result_df,
-      caption="Table 2. name2")
+# kable(final_result_df,
+#       caption="Table 2. name2")
 ```
 
 # Limitations & Future
