@@ -8,23 +8,28 @@ Options:
 --<csv_path>=<csv_path>   One stock per row csv relative path (this is required)
 " -> doc
 
-print("saved doc...")
 main <- function(opt) {
+  
   print("reading data")
   data <- read_csv(opt$csv_path)
   
   print("conducting lm")
   SLR <- lm(price_change_pct ~ pct_period_search_vol, data)
-  
-  print("making html regression results")
-  stargazer(SLR, type = 'html',
+ 
+#  makes regression results table 
+#  print("making txt regression results")
+  stargazer(SLR, type = 'text',
             title='Regression Results',
-            out = '../results/SLR-regression-results.html')
+            out = '../data/regression-results.txt')
+
+  
   # note to save in jupyter notebook use
   # from IPython.display import HTML
   # HTML(filename='../results/SLR-regression-results.html')
-  
-  print("making plot 1")
+ 
+
+#  generate regression plot   
+#  print("making plot 1")
   plot <- data |> ggplot(aes(x = pct_period_search_vol, y = price_change_pct)) + 
     geom_point() +
     stat_smooth(method = "lm", col = "red") +
@@ -32,15 +37,19 @@ main <- function(opt) {
     xlab("Google Search Trend volatility (StDev of weekly % of total search volume)") +
     ggtitle(paste0("Simple linear regression of stock return volatility\nagainst Google Search Volume volatility with R^2 of ", round(summary(SLR)$r.squared, 4))) +
     theme_bw(base_size = 10)
-  
-  print("saving plot")  
+
+    
+#  print("saving plot")  
   ggsave("../results/regression-plot.png")
-  
-  print("adding residuals")  
+
+
+# add residuals    
+# print("adding residuals")  
   data_resid <- data
   data_resid$residuals <- resid(SLR)
-  
-  print("making resid plot")
+
+# generate and save residual plot    
+#  print("making resid plot")
   resid_plot <- data_resid |> ggplot(aes(x = pct_period_search_vol, y = residuals)) +
       geom_point() +
       stat_smooth(method = "lm", col = "red") +
