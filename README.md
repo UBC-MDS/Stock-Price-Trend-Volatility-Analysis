@@ -22,7 +22,25 @@ Reproducibility of results is of utmost importance in data science. In this sect
 
 ### Dependencies
 
-Firstly, please ensure that your python and R environments have installed the following dependencies.
+Firstly, please ensure that your python and R environments have installed the following dependencies:
+
+python dependencies:
+  - altair>=4.1.0
+  - altair_data_server>=0.4.1
+  - altair_saver>=0.5.0
+  - pandas>=1.3.4
+  - pandas-profiling>=3.1.0
+  - requests>=2.26.0
+  - selenium>=3.141.0
+  - docopt>=0.6.2
+  - pip
+
+  R dependencies:
+  - tidyverse 1.3.1
+  - docopt 0.7.1
+  - stargazer 5.2.2
+
+  Additionally you could use the env.yaml and R_dependencies files.
 
 ### Process flow chart
 
@@ -94,4 +112,4 @@ for Google Trends:
 
 8.  Run the following to generate the final R markdown document and knitted output file
 
-`placeholder`
+`Rscript -e "rmarkdown::render('doc/Stock_Price_Trend_Volatility_Analysis_report.Rmd', output_format = 'github_document')"`

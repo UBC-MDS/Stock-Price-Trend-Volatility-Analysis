@@ -53,13 +53,13 @@ underlying stock. These properties underscore the motivation for seeking
 out associations between unusual data sources and return volatility.
 
 This report was compiled using an R markdown document with scripts
-running via `docopt` package\[@docopt\]. The data tables are stored as
-.csv files in
+running via `docopt` package(de Jonge 2020). The data tables are stored
+as .csv files in
 [data](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data)
-folder. Intermediate analysis is carrying by using
-`Pandas`\[@mckinney-proc-scipy-2010\] package in python. The final data
-set that we use for analysis is displayed by using `kable` function in
-`knitr`\[@knitr\]. The results are showing as .png pictures stored in
+folder. Intermediate analysis is carrying by using `Pandas`(McKinney
+2010) package in python. The final data set that we use for analysis is
+displayed by using `kable` function in `knitr`(Xie, n.d.). The results
+are showing as .png pictures stored in
 [results](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results)
 folder and is displayed by applying `knitr` as well.
 
@@ -71,12 +71,12 @@ The data is downloaded from Google Trends, Google Finance and Yahoo
 Finance. In the src folder, we provide the automation python files that
 we used to extract and ultimately merge these data sources.
 
-We used Pandas-Profiling\[@pandasprofiling2019\] to get a first at the
-original data set. There are 5 features and total 17472 observations
-with no missing or duplicate values. `weekly_interest` refers to the
-interest over time data from Google Trends, which is the number of
-search interests of stocks (symbol variable). This number is relative to
-the highest point for the given period. A value of 100 is the peak
+We used Pandas-Profiling(Brugman 2019) to get a first at the original
+data set. There are 5 features and total 17472 observations with no
+missing or duplicate values. `weekly_interest` refers to the interest
+over time data from Google Trends, which is the number of search
+interests of stocks (symbol variable). This number is relative to the
+highest point for the given period. A value of 100 is the peak
 popularity for the term and a value of 50 means that the term is half as
 popular, and a score of 0 means there was not enough data for this term.
 In addition, there are 52 consecutive weeks and 336 different stocks
@@ -230,4 +230,19 @@ contain lots of complexity.
 Ultimately, this positive result is exciting and warrants future
 investigation into the use of Google Trends for Financial Analysis.
 
-# References
+## References
+
+Brugman, Simon. 2019. “<span class="nocase">pandas-profiling:
+Exploratory Data Analysis for Python</span>.”
+<https://github.com/pandas-profiling/pandas-profiling>.
+
+de Jonge, Edwin. 2020. *Docopt: Command-Line Interface Specification
+Language*. <https://CRAN.R-project.org/package=docopt>.
+
+McKinney, Wes. 2010. “Data Structures for Statistical Computing in
+Python.” In *Proceedings of the 9th Python in Science Conference*,
+edited by Stéfan van der Walt and Jarrod Millman, 56–61.
+https://doi.org/[ 10.25080/Majora-92bf1922-00a](https://doi.org/ 10.25080/Majora-92bf1922-00a ).
+
+Xie, Yihui. n.d. *Knitr: A General-Purpose Package for Dynamic Report
+Generation in r*. <https://yihui.org/knitr/>.
