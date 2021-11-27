@@ -1,14 +1,14 @@
 ---
-title: "Stock_Price_Trend_Volatility_Analysis"
+title: "Stock Price Trend Volatility Analysis"
 author: "Group30 - Amir Abbas Shojakhani, Julien Gordon, Helin Wang"
 date: "11/26/2021"
 bibliography: references.bib
 output: 
-  html_document:
+  md_document: 
     toc: true
   github_document:
     toc: true
-  md_document: 
+  html_document:
     toc: true
 ---
 
@@ -28,6 +28,7 @@ In this project, we are trying to analyze whether there any relationship between
 
 The term "stock market" often refers to one of the major stock market indexes, such as the Dow Jones Industrial Average or the Standard & Poor's 500, which includes 500 of the largest U.S. companies. It is a global network in which individuals can purchase ownership, commonly known as shares, of a public company. Companies will become public when they are listed under a stock exchange where the financial instruments are bought and sold. The motivation for this question is that there are certain derivative trading strategies that revolve around being able to benefit from increases or decreases in the implied volatility of the underlying stock. Investors are often interested in understanding the volatility of stock returns. Some financial derivative trading strategies try to take advantage of changes in a stocks' volatility, as certain options are sensitive to changes in implied volatility.
 
+This report was compiled using R document with scripts running via `docopt` package[@docopt]. The data tables are stored as .csv files in [data](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data) folder. Intermediate analysis is carrying by using `Pandas`[@mckinney-proc-scipy-2010] package in python. The final data set that we use for analysis is displayed by using `kable` function in `knitr`[@knitr]. The results are showing as .png pictures stored in [results](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results) folder and is displayed by applying `knitr` as well.
 
 # Methods
 
@@ -39,11 +40,13 @@ We used Pandas-Profiling[@pandasprofiling2019] to git a first at the original da
 
 Our data cleaning involves some cleaning of the returns data, specifically converting returns to percentage formats for standardization.
 
+The following table is a sample of 10 rows of data set that has been used for our analysis. The full data set can be found [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/data/stocks-prices-trend-volatility.csv)
+
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
 stock_price_trend_volatility_df <- read_csv("../data/stocks-prices-trend-volatility.csv") |> 
   head(10)
 kable(stock_price_trend_volatility_df,
-      caption = "Table 1. The volatility of stock prices and trends.",
+      caption = "Table 1. The volatility of stock prices and trends(first 10 rows).",
       format = "markdown")
 ```
 
@@ -97,16 +100,5 @@ knitr::include_graphics("../results/sectors_stocks_prices_searchvols_reg.png")
 # Limitations & Future
 
 We have very limited features so far. Therefore, one thing We can do is to expand our features of search volatility. For example, while we use stock tickers for this EDA, we can perhaps use the company names or other adjacent searches in our volatility analysis.
-
-
-Citation test:
-
-2[@tidyverse]
-3[@stargazer]
-4[@VanderPlas2018]
-5[@mckinney-proc-scipy-2010]
-6[@pandasprofiling2019]
-7[]
-8[@docopt]
 
 # References
