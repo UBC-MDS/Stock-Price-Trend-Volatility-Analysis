@@ -2,15 +2,15 @@
 
 ## Project Overview
 
-Investment firms are increasingly looking to data science and unusual data sources to provide informational advantages to bolster their portfolio strategies. In this project, we are investigating whether Google Trends data on stock ticker names can provide insight into return volatility**. Investors are often interested in understanding the volatility of stock returns. Some financial derivative trading strategies try to take advantage of changes in a stocks' volatility, as certain options are sensitive to changes in implied volatility. See a primer on option vega if you are interested! <https://www.investopedia.com/terms/v/vega.asp>
+Investment firms are increasingly looking to data science and unusual data sources to provide informational advantages to bolster their portfolio strategies. In this project, we are investigating whether Google Trends data on stock ticker names can provide insight into return volatility\*\*. Investors are often interested in understanding the volatility of stock returns. Some financial derivative trading strategies try to take advantage of changes in a stocks' volatility, as certain options are sensitive to changes in implied volatility. See a primer on option vega if you are interested! <https://www.investopedia.com/terms/v/vega.asp>
 
 Consider this project a screening exercise for whether Google Trends could be useful in volatility-based trading strategies.
 
 In order to assess the association between stock return volatility and search trend volatility, we analyse the standard deviation of weekly search trends and weekly returns for over 300 stocks in the S&P 500 over a one-year period from July 2020 to July 2021. We conduct a simple linear regression with a confidence level of 0.95 with the return volatility as the dependent variable and search trends volatility as the independent variable. Our null hypothesis is that there is no association between the two volatilities, with the alternative being that there is an association.
 
-Ultimately, we find a significant coefficient of trend volatility and reject the null hypothesis in favour of the alternative. The R^2 value indicates that our simple model is explaining very little of the variation in return volatility. Moreover, the effect size seems to be fairly small in relation to the range of return volatility that we observe in the data. These caveats are to be expected considering we are using a very simple model to understand markets which contain lots of complexity. Nonetheless, this positive result is exciting and warrants future investigation into the use of Google Trends for Financial Analysis.
+Ultimately, we find a significant coefficient of trend volatility and reject the null hypothesis in favour of the alternative. The R\^2 value indicates that our simple model is explaining very little of the variation in return volatility. Moreover, the effect size seems to be fairly small in relation to the range of return volatility that we observe in the data. These caveats are to be expected considering we are using a very simple model to understand markets which contain lots of complexity. Nonetheless, this positive result is exciting and warrants future investigation into the use of Google Trends for Financial Analysis.
 
-**Note that in statistical terms, the volatility is simply the standard deviation of returns. <https://www.investopedia.com/terms/v/volatility.asp>
+\*\*Note that in statistical terms, the volatility is simply the standard deviation of returns. <https://www.investopedia.com/terms/v/volatility.asp>
 
 ## Report
 
@@ -34,56 +34,64 @@ The following figure may be helful to visualize the steps of the analysis
 
 IMPORTANT NOTE
 
-Downloading the data will take several hours to run. We suggest instead skipping to step 5 and using the pre-downloaded data in our repository.
-
-#### Download stock ticker info
-
-1. Firstly you must go to _______ and download the list of S&P 500 stocks and their sectors.
+Downloading the data will take several hours to run. We suggest instead skipping to step 4 and using the pre-downloaded data in our repository.
 
 #### Automated download of stock return and trend data
 
-2. Open your terminal and navigate to the src folder of the project that you have forked and cloned.
+1.  Open your terminal and navigate to the src folder of the project that you have forked and cloned.
 
-Execute the following commands in terminal, noting that full download will take several hours.
+Execute the following .py files, noting that full download will take several hours.
 
-for Yahoo Finance:
+As we are utilizing the Selenium library to automate the files download process, make sure you have the latest Google Chrome and Chrome Driver installed on your system. Please note the automation will run in a headless chrome browser and we strongly advise not to reduce the time.sleep in any of the files.
 
-```placeholder```
-
-for Google Trends:
-
-```placeholder```
-
-3. Run the following to merge the folder of csvs
+Stock tickers are extracted automatically from the `SP500.csv` file located in the data folder of this project.
 
 for Yahoo Finance:
 
-```placeholder```
+`yf-file-downloader-source.py`
 
 for Google Trends:
 
-```placeholder```
+`gt-file-downloader-source.py`
 
-4. Run the following to merge trend, finance, and sector information
+Note: If you are running these .py files in a windows operating system, make sure to add a `.exe` file extension to the chrome driver path.
 
-```placeholder```
+2.  Execute the following .py files to merge the folder of csvs
 
-5. Run the following to perform necessary feature transformations. The output will be one row per stock-week.
+for Yahoo Finance:
 
-```placeholder```
+`stocks-price-merge.py`
 
-6. Run the following to calculate weekly volatility information per stock. The output will be one row per stock.
+for Google Trends:
 
-```placeholder```
+`stocks-trends-merge.py`
 
-7. Run the following to generate exploratory data analysis plots
+3.  Execute the following .py file to merge trend, finance, and sector information
 
-```placeholder```
+`price_trend_merger.py`
 
-8. Run the following to generate regression results
+## The following steps should be run as scripts in the terminal. This is a recommended starting point for this project.
 
-```placeholder```
+4.  Run the following to perform necessary feature transformations. The output will be one row per stock-week.
 
-9. Run the following to generate the final R markdown document and knitted output file
+    The following script collects a file containing the stocks price and trends weekly data to generate a combined .csv file along with their weekly change percentages
 
-```placeholder```
+`python generate-stock_price_trend_df.py --in_file=<in_file> --out_file=<out_file>`
+
+5.  Run the following to calculate weekly volatility information per stock. The output will be one row per stock.
+
+    The following script collects a file containing the stocks price, trends weekly changes and percentages data to generate a .csv file containing the price and volume search volatilites for each stock.
+
+`python generate-stock_price_trend_volatility_df.py --in_file=<in_file> --out_file=<out_file>`
+
+6.  Run the following to generate exploratory data analysis plots
+
+`python generate-plot-images.py --in_file=<in_file> --out_folder=<out_folder>`
+
+7.  Run the following to generate regression results
+
+`Rscript SLR.R --csv_path=<csv_path>`
+
+8.  Run the following to generate the final R markdown document and knitted output file
+
+`placeholder`
