@@ -44,7 +44,7 @@ Execute the following .py files, noting that full download will take several hou
 
 As we are utilizing the Selenium library to automate the files download process, make sure you have the latest Google Chrome and Chrome Driver installed on your system. Please note the automation will run in a headless chrome browser and we strongly advise not to reduce the time.sleep in any of the files.
 
-Stock tickers are extracted automatically from the `S&P500.csv` file located in the data folder of this project.
+Stock tickers are extracted automatically from the `SP500.csv` file located in the data folder of this project.
 
 for Yahoo Finance:
 
