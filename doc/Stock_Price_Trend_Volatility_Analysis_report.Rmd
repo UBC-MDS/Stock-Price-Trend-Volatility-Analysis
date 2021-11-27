@@ -29,7 +29,7 @@ Investment firms are increasingly looking to data science and unusual data sourc
 
 To cover the basics, the term "stock market" typically refers to one of the major stock market indexes, such as the Dow Jones Industrial Average or the Standard & Poor's 500, which includes 500 of the largest U.S. companies. It is a global network in which individuals can purchase ownership, commonly known as shares, of a public company. Companies will become public when they are listed under a stock exchange where the financial instruments are bought and sold. Moreover, a financial [derivative](https://www.investopedia.com/terms/d/derivative.asp) is a product or contract which typically derives its value from an underlying asset, such as an [option](https://www.investopedia.com/terms/o/option.asp) on a company's stock. One property of many option derivatives is option [vega](https://www.investopedia.com/terms/v/vega.asp), which generally refers to the sensitivity of the option price to the implied volatility of the underlying. Some derivative trading strategies revolve around benefiting from increases or decreases in the implied volatility of the underlying stock. These properties underscore the motivation for seeking out associations between unusual data sources and return volatility.
 
-This report was compiled using an R markdown document with scripts running via `docopt` package[\@docopt]. The data tables are stored as .csv files in [data](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data) folder. Intermediate analysis is carrying by using `Pandas`[\@mckinney-proc-scipy-2010] package in python. The final data set that we use for analysis is displayed by using `kable` function in `knitr`[\@knitr]. The results are showing as .png pictures stored in [results](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results) folder and is displayed by applying `knitr` as well.
+This report was compiled using an R markdown document with scripts running via `docopt` package[@docopt]. The data tables are stored as .csv files in [data](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data) folder. Intermediate analysis is carrying by using `Pandas`[@mckinney-proc-scipy-2010] package in python. The final data set that we use for analysis is displayed by using `kable` function in `knitr`[@knitr]. The results are showing as .png pictures stored in [results](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results) folder and is displayed by applying `knitr` as well.
 
 # Methods
 
@@ -37,7 +37,7 @@ This report was compiled using an R markdown document with scripts running via `
 
 The data is downloaded from Google Trends, Google Finance and Yahoo Finance. In the src folder, we provide the automation python files that we used to extract and ultimately merge these data sources.
 
-We used Pandas-Profiling[\@pandasprofiling2019] to get a first at the original data set. There are 5 features and total 17472 observations with no missing or duplicate values. `weekly_interest` refers to the interest over time data from Google Trends, which is the number of search interests of stocks (symbol variable). This number is relative to the highest point for the given period. A value of 100 is the peak popularity for the term and a value of 50 means that the term is half as popular, and a score of 0 means there was not enough data for this term. In addition, there are 52 consecutive weeks and 336 different stocks taken into the data set.
+We used Pandas-Profiling[@pandasprofiling2019] to get a first at the original data set. There are 5 features and total 17472 observations with no missing or duplicate values. `weekly_interest` refers to the interest over time data from Google Trends, which is the number of search interests of stocks (symbol variable). This number is relative to the highest point for the given period. A value of 100 is the peak popularity for the term and a value of 50 means that the term is half as popular, and a score of 0 means there was not enough data for this term. In addition, there are 52 consecutive weeks and 336 different stocks taken into the data set.
 
 Our data cleaning process involved:
 
@@ -107,4 +107,4 @@ It must be noted again that our simple model is explaining very little of the va
 
 Ultimately, this positive result is exciting and warrants future investigation into the use of Google Trends for Financial Analysis.
 
-# References
+## References
