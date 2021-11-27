@@ -24,6 +24,17 @@ volatility of stock returns. Some financial derivative trading
 strategies try to take advantage of changes in a stocks’ volatility, as
 certain options are sensitive to changes in implied volatility.
 
+This report was compiled using R document with scripts running via
+`docopt` package(de Jonge 2020). The data tables are stored as .csv
+files in
+[data](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data)
+folder. Intermediate analysis is carrying by using `Pandas`(McKinney
+2010) package in python. The final data set that we use for analysis is
+displayed by using `kable` function in `knitr`(Xie, n.d.). The results
+are showing as .png pictures stored in
+[results](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results)
+folder and is displayed by applying `knitr` as well.
+
 # Methods
 
 ## Data
@@ -45,8 +56,12 @@ Our data cleaning involves some cleaning of the returns data,
 specifically converting returns to percentage formats for
 standardization.
 
+The following table is a sample of 10 rows of data set that has been
+used for our analysis. The full data set can be found
+[here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/data/stocks-prices-trend-volatility.csv)
+
 <table>
-<caption>Table 1. The volatility of stock prices and trends.</caption>
+<caption>Table 1. The volatility of stock prices and trends(first 10 rows).</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">symbol</th>
@@ -119,7 +134,7 @@ standardization.
 </tbody>
 </table>
 
-Table 1. The volatility of stock prices and trends.
+Table 1. The volatility of stock prices and trends(first 10 rows).
 
 ## Analysis
 
@@ -197,11 +212,6 @@ to expand our features of search volatility. For example, while we use
 stock tickers for this EDA, we can perhaps use the company names or
 other adjacent searches in our volatility analysis.
 
-Citation test:
-
-2(Wickham 2017) 3(Hlavac 2018) 4(VanderPlas et al. 2018) 5(McKinney
-2010) 6(Brugman 2019) 7\[\] 8(de Jonge 2020)
-
 # References
 
 Brugman, Simon. 2019. “<span class="nocase">pandas-profiling:
@@ -210,11 +220,6 @@ Exploratory Data Analysis for Python</span>.”
 
 de Jonge, Edwin. 2020. *Docopt: Command-Line Interface Specification
 Language*. <https://CRAN.R-project.org/package=docopt>.
-
-Hlavac, Marek. 2018. *Stargazer: Well-Formatted Regression and Summary
-Statistics Tables*. Bratislava, Slovakia: Central European Labour
-Studies Institute (CELSI).
-<https://CRAN.R-project.org/package=stargazer>.
 
 McKinney, Wes. 2010. “Data Structures for Statistical Computing in
 Python.” In *Proceedings of the 9th Python in Science Conference*,
@@ -226,11 +231,5 @@ official. n.d.a. *Google Trends Search*.
 
 ———. n.d.b. *Yahoo Finance Search*. <https://ca.finance.yahoo.com/>.
 
-VanderPlas, Jacob, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit
-Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben
-Welsh, and Scott Sievert. 2018. “Altair: Interactive Statistical
-Visualizations for Python.” *Journal of Open Source Software* 3 (32):
-1057. <https://doi.org/10.21105/joss.01057>.
-
-Wickham, Hadley. 2017. *Tidyverse: Easily Install and Load the
-’Tidyverse’*. <https://CRAN.R-project.org/package=tidyverse>.
+Xie, Yihui. n.d. *Knitr: A General-Purpose Package for Dynamic Report
+Generation in r*. <https://yihui.org/knitr/>.
