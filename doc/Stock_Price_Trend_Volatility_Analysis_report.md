@@ -1,25 +1,12 @@
-Stock Price Trend Volatility Analysis
-================
-Group30 - Amir Abbas Shojakhani, Julien Gordon, Helin Wang
-11/26/2021
-
--   [Summary](#summary)
--   [Introduction](#introduction)
--   [Methods](#methods)
-    -   [Data](#data)
-    -   [Analysis](#analysis)
--   [Results & Discussion](#results--discussion)
--   [Limitations & Future Research](#limitations--future-research)
--   [References](#references)
-
 # Summary
 
-In this project, we analyze whether there any association between the
-volatility of weekly Google Trends keyword interest of a stock ticker
-and the volatility weekly stock returns. We analyze the standard
-deviation of weekly search trends and weekly returns over a one-year
-period July 2020 to July 2021 of over 300 stocks in the S&P 500,
-ultimately finding a small but statistically significant association.
+In this project, we analyze whether there is any association between the
+volatility of weekly Google Trends(official, n.d.a) keyword interest of
+a stock ticker and the volatility of weekly stock returns. We analyze
+the standard deviation of weekly search trends and weekly returns over a
+one-year period July 2020 to July 2021 of over 300 stocks in the S&P
+500, ultimately finding a small but statistically significant
+association.
 
 # Introduction
 
@@ -27,7 +14,7 @@ Investment firms are increasingly looking to data science and unusual
 data sources to provide informational advantages to bolster their
 portfolio strategies. In this project, we are investigating whether
 Google Trends data on stock ticker names can provide insight into return
-volatility\*\*. Investors are often interested in understanding the
+volatility. Investors are often interested in understanding the
 volatility of stock returns. Some financial derivative trading
 strategies try to take advantage of changes in a stocks’ return
 volatility, as certain options are sensitive to changes in implied
@@ -52,14 +39,15 @@ benefiting from increases or decreases in the implied volatility of the
 underlying stock. These properties underscore the motivation for seeking
 out associations between unusual data sources and return volatility.
 
-This report was compiled using an R markdown document with scripts
-running via `docopt` package(de Jonge 2020). The data tables are stored
-as .csv files in
+This report was compiled using an R markdown document from R(R Core Team
+2021) with scripts running via `docopt` package(de Jonge 2020). The data
+tables are stored as .csv files in
 [data](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data)
 folder. Intermediate analysis is carrying by using `Pandas`(McKinney
-2010) package in python. The final data set that we use for analysis is
-displayed by using `kable` function in `knitr`(Xie, n.d.). The results
-are showing as .png pictures stored in
+2010) package in python(Python Core Team 2019). The final data set that
+we use for analysis is displayed by using `kable` function in
+`knitr`(Xie, n.d.) package. The results are showing as .png pictures
+stored in
 [results](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results)
 folder and is displayed by applying `knitr` as well.
 
@@ -67,9 +55,11 @@ folder and is displayed by applying `knitr` as well.
 
 ## Data
 
-The data is downloaded from Google Trends, Google Finance and Yahoo
-Finance. In the src folder, we provide the automation python files that
-we used to extract and ultimately merge these data sources.
+We use Selenium(Salunke 2014) to automate the process of downloading
+stocks prices from Yahoo Finance(official, n.d.b) and their search
+interest index from Google Trends. In the src folder, we provide the
+automation python files that we used to extract and ultimately merge
+these data sources.
 
 We used Pandas-Profiling(Brugman 2019) to get a first at the original
 data set. There are 5 features and total 17472 observations with no
@@ -98,18 +88,79 @@ table is a sample of 10 rows of data which is ultimately used for our
 analysis. The full data set can be found
 [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/data/stocks-prices-trend-volatility.csv).
 
-| symbol | Sector                 | price_change_pct | pct_period_search_vol |
-|:-------|:-----------------------|-----------------:|----------------------:|
-| AAL    | Industrials            |        0.0628100 |             0.8109703 |
-| AAP    | Consumer Discretionary |        0.0378506 |             0.5210795 |
-| AAPL   | Information Technology |        0.0410338 |             0.8915568 |
-| ABBV   | Health Care            |        0.0307708 |             0.8473470 |
-| ABC    | Health Care            |        0.0359477 |             0.2220668 |
-| ABMD   | Health Care            |        0.0474028 |             2.4691348 |
-| ABT    | Health Care            |        0.0275525 |             0.8239577 |
-| ACN    | Information Technology |        0.0271709 |             0.6953271 |
-| ADBE   | Information Technology |        0.0395646 |             0.9256184 |
-| ADI    | Information Technology |        0.0343544 |             0.6095752 |
+<table>
+<caption>Table 1. The volatility of stock prices and trends(first 10 rows).</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">symbol</th>
+<th style="text-align: left;">Sector</th>
+<th style="text-align: right;">price_change_pct</th>
+<th style="text-align: right;">pct_period_search_vol</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">AAL</td>
+<td style="text-align: left;">Industrials</td>
+<td style="text-align: right;">0.0628100</td>
+<td style="text-align: right;">0.8109703</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AAP</td>
+<td style="text-align: left;">Consumer Discretionary</td>
+<td style="text-align: right;">0.0378506</td>
+<td style="text-align: right;">0.5210795</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AAPL</td>
+<td style="text-align: left;">Information Technology</td>
+<td style="text-align: right;">0.0410338</td>
+<td style="text-align: right;">0.8915568</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ABBV</td>
+<td style="text-align: left;">Health Care</td>
+<td style="text-align: right;">0.0307708</td>
+<td style="text-align: right;">0.8473470</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ABC</td>
+<td style="text-align: left;">Health Care</td>
+<td style="text-align: right;">0.0359477</td>
+<td style="text-align: right;">0.2220668</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ABMD</td>
+<td style="text-align: left;">Health Care</td>
+<td style="text-align: right;">0.0474028</td>
+<td style="text-align: right;">2.4691348</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ABT</td>
+<td style="text-align: left;">Health Care</td>
+<td style="text-align: right;">0.0275525</td>
+<td style="text-align: right;">0.8239577</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ACN</td>
+<td style="text-align: left;">Information Technology</td>
+<td style="text-align: right;">0.0271709</td>
+<td style="text-align: right;">0.6953271</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ADBE</td>
+<td style="text-align: left;">Information Technology</td>
+<td style="text-align: right;">0.0395646</td>
+<td style="text-align: right;">0.9256184</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ADI</td>
+<td style="text-align: left;">Information Technology</td>
+<td style="text-align: right;">0.0343544</td>
+<td style="text-align: right;">0.6095752</td>
+</tr>
+</tbody>
+</table>
 
 Table 1. The volatility of stock prices and trends(first 10 rows).
 
@@ -136,11 +187,17 @@ stock search volume volatility for all stocks in the data. We see a
 right skewed normal shape for price change volatility and more of an
 exponential distribution for search volume volatility.
 
-<img src="../results/volatility_distribution_plots.png" title="Figure 1. Volatility distribution" alt="Figure 1. Volatility distribution" width="100%" />
+<img src="../results/volatility_distribution_plots.png" alt="Figure 1. Volatility distribution" width="100%" />
+<p class="caption">
+Figure 1. Volatility distribution
+</p>
 
 Now we have the distributions by different sectors:
 
-<img src="../results/sectors_volatility_distribution_plots.png" title="Figure 2. Volatility distribution by sectors" alt="Figure 2. Volatility distribution by sectors" width="100%" />
+<img src="../results/sectors_volatility_distribution_plots.png" alt="Figure 2. Volatility distribution by sectors" width="100%" />
+<p class="caption">
+Figure 2. Volatility distribution by sectors
+</p>
 
 Above we plot histograms of the standard deviations of returns and
 trends of around 330 stocks selected from the S&P500. We broadly observe
@@ -172,9 +229,15 @@ volatility.
     ## =================================================
     ## Note:                 *p<0.1; **p<0.05; ***p<0.01
 
-<img src="../results/regression-plot.png" title="Figure 3. Regression" alt="Figure 3. Regression" width="50%" />
+<img src="../results/regression-plot.png" alt="Figure 3. Regression" width="50%" />
+<p class="caption">
+Figure 3. Regression
+</p>
 
-<img src="../results/residuals-plot.png" title="Figure 4. Residuals" alt="Figure 4. Residuals" width="50%" />
+<img src="../results/residuals-plot.png" alt="Figure 4. Residuals" width="50%" />
+<p class="caption">
+Figure 4. Residuals
+</p>
 
 Given that our p-value of 0.027 for our slope coefficient is less than
 our significance level of 0.05, we find a significant coefficient of
@@ -193,7 +256,10 @@ search volatility, and we do not observe any obvious change in variance
 or direction of residuals across the plot. This means that it is
 unlikely we have meaningfully violated regression assumptions.
 
-<img src="../results/sectors_stocks_prices_searchvols_reg.png" title="Figure 5. Regression result for volatility by sectors" alt="Figure 5. Regression result for volatility by sectors" width="100%" />
+<img src="../results/sectors_stocks_prices_searchvols_reg.png" alt="Figure 5. Regression result for volatility by sectors" width="100%" />
+<p class="caption">
+Figure 5. Regression result for volatility by sectors
+</p>
 
 Comparing across sectors, while the histogram distributions of
 volatility of searches and returns seemed fairly similar to the overall
@@ -243,6 +309,23 @@ McKinney, Wes. 2010. “Data Structures for Statistical Computing in
 Python.” In *Proceedings of the 9th Python in Science Conference*,
 edited by Stéfan van der Walt and Jarrod Millman, 56–61.
 https://doi.org/[ 10.25080/Majora-92bf1922-00a](https://doi.org/ 10.25080/Majora-92bf1922-00a ).
+
+official. n.d.a. *Google Trends Search*.
+<https://trends.google.com/trends/?geo=CA>.
+
+———. n.d.b. *Yahoo Finance Search*. <https://ca.finance.yahoo.com/>.
+
+Python Core Team. 2019. *<span class="nocase">Python: A dynamic, open
+source programming language</span>*. Python Software Foundation.
+<https://www.python.org/>.
+
+R Core Team. 2021. *R: A Language and Environment for Statistical
+Computing*. Vienna, Austria: R Foundation for Statistical Computing.
+<https://www.R-project.org/>.
+
+Salunke, Sagar Shivaji. 2014. *Selenium Webdriver in Python: Learn with
+Examples*. 1st ed. North Charleston, SC, USA: CreateSpace Independent
+Publishing Platform.
 
 Xie, Yihui. n.d. *Knitr: A General-Purpose Package for Dynamic Report
 Generation in r*. <https://yihui.org/knitr/>.
