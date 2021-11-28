@@ -212,19 +212,19 @@ pre code {
 
 <div id="summary" class="section level1">
 <h1>Summary</h1>
-<p>In this project, we analyze whether there any association between the volatility of weekly Google Trends keyword interest of a stock ticker and the volatility weekly stock returns. We analyze the standard deviation of weekly search trends and weekly returns over a one-year period July 2020 to July 2021 of over 300 stocks in the S&amp;P 500, ultimately finding a small but statistically significant association.</p>
+<p>In this project, we analyze whether there is any association between the volatility of weekly Google Trends<span class="citation">(official, n.d.a)</span> keyword interest of a stock ticker and the volatility of weekly stock returns. We analyze the standard deviation of weekly search trends and weekly returns over a one-year period July 2020 to July 2021 of over 300 stocks in the S&amp;P 500, ultimately finding a small but statistically significant association.</p>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Investment firms are increasingly looking to data science and unusual data sources to provide informational advantages to bolster their portfolio strategies. In this project, we are investigating whether Google Trends data on stock ticker names can provide insight into return volatility**. Investors are often interested in understanding the volatility of stock returns. Some financial derivative trading strategies try to take advantage of changes in a stocks’ return volatility, as certain options are sensitive to changes in implied volatility.</p>
+<p>Investment firms are increasingly looking to data science and unusual data sources to provide informational advantages to bolster their portfolio strategies. In this project, we are investigating whether Google Trends data on stock ticker names can provide insight into return volatility. Investors are often interested in understanding the volatility of stock returns. Some financial derivative trading strategies try to take advantage of changes in a stocks’ return volatility, as certain options are sensitive to changes in implied volatility.</p>
 <p>To cover the basics, the term “stock market” typically refers to one of the major stock market indexes, such as the Dow Jones Industrial Average or the Standard &amp; Poor’s 500, which includes 500 of the largest U.S. companies. It is a global network in which individuals can purchase ownership, commonly known as shares, of a public company. Companies will become public when they are listed under a stock exchange where the financial instruments are bought and sold. Moreover, a financial <a href="https://www.investopedia.com/terms/d/derivative.asp">derivative</a> is a product or contract which typically derives its value from an underlying asset, such as an <a href="https://www.investopedia.com/terms/o/option.asp">option</a> on a company’s stock. One property of many option derivatives is option <a href="https://www.investopedia.com/terms/v/vega.asp">vega</a>, which generally refers to the sensitivity of the option price to the implied volatility of the underlying. Some derivative trading strategies revolve around benefiting from increases or decreases in the implied volatility of the underlying stock. These properties underscore the motivation for seeking out associations between unusual data sources and return volatility.</p>
-<p>This report was compiled using an R markdown document with scripts running via <code>docopt</code> package<span class="citation">(de Jonge 2020)</span>. The data tables are stored as .csv files in <a href="https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data">data</a> folder. Intermediate analysis is carrying by using <code>Pandas</code><span class="citation">(McKinney 2010)</span> package in python. The final data set that we use for analysis is displayed by using <code>kable</code> function in <code>knitr</code><span class="citation">(Xie, n.d.)</span>. The results are showing as .png pictures stored in <a href="https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results">results</a> folder and is displayed by applying <code>knitr</code> as well.</p>
+<p>This report was compiled using an R markdown document from R<span class="citation">(R Core Team 2021)</span> with scripts running via <code>docopt</code> package<span class="citation">(de Jonge 2020)</span>. The data tables are stored as .csv files in <a href="https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/data">data</a> folder. Intermediate analysis is carrying by using <code>Pandas</code><span class="citation">(McKinney 2010)</span> package in python<span class="citation">(Python Core Team 2019)</span>. The final data set that we use for analysis is displayed by using <code>kable</code> function in <code>knitr</code><span class="citation">(Xie, n.d.)</span> package. The results are showing as .png pictures stored in <a href="https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/tree/main/results">results</a> folder and is displayed by applying <code>knitr</code> as well.</p>
 </div>
 <div id="methods" class="section level1">
 <h1>Methods</h1>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>The data is downloaded from Google Trends, Google Finance and Yahoo Finance. In the src folder, we provide the automation python files that we used to extract and ultimately merge these data sources.</p>
+<p>We use Selenium<span class="citation">(Salunke 2014)</span> to automate the process of downloading stocks prices from Yahoo Finance<span class="citation">(official, n.d.b)</span> and their search interest index from Google Trends. In the src folder, we provide the automation python files that we used to extract and ultimately merge these data sources.</p>
 <p>We used Pandas-Profiling<span class="citation">(Brugman 2019)</span> to get a first at the original data set. There are 5 features and total 17472 observations with no missing or duplicate values. <code>weekly_interest</code> refers to the interest over time data from Google Trends, which is the number of search interests of stocks (symbol variable). This number is relative to the highest point for the given period. A value of 100 is the peak popularity for the term and a value of 50 means that the term is half as popular, and a score of 0 means there was not enough data for this term. In addition, there are 52 consecutive weeks and 336 different stocks taken into the data set.</p>
 <p>Our data cleaning process involved:</p>
 <ul>
@@ -388,6 +388,21 @@ de Jonge, Edwin. 2020. <em>Docopt: Command-Line Interface Specification Language
 </div>
 <div id="ref-mckinney-proc-scipy-2010" class="csl-entry">
 McKinney, Wes. 2010. <span>“<span>D</span>ata <span>S</span>tructures for <span>S</span>tatistical <span>C</span>omputing in <span>P</span>ython.”</span> In <em><span>P</span>roceedings of the 9th <span>P</span>ython in <span>S</span>cience <span>C</span>onference</em>, edited by Stéfan van der Walt and Jarrod Millman, 56–61. https://doi.org/<a href="https://doi.org/ 10.25080/Majora-92bf1922-00a "> 10.25080/Majora-92bf1922-00a</a>.
+</div>
+<div id="ref-googletrends" class="csl-entry">
+official. n.d.a. <em>Google Trends Search</em>. <a href="https://trends.google.com/trends/?geo=CA">https://trends.google.com/trends/?geo=CA</a>.
+</div>
+<div id="ref-yahoofinance" class="csl-entry">
+———. n.d.b. <em>Yahoo Finance Search</em>. <a href="https://ca.finance.yahoo.com/">https://ca.finance.yahoo.com/</a>.
+</div>
+<div id="ref-python" class="csl-entry">
+Python Core Team. 2019. <em><span class="nocase">Python: A dynamic, open source programming language</span></em>. <span>Python Software Foundation</span>. <a href="https://www.python.org/">https://www.python.org/</a>.
+</div>
+<div id="ref-R" class="csl-entry">
+R Core Team. 2021. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-selenium" class="csl-entry">
+Salunke, Sagar Shivaji. 2014. <em>Selenium Webdriver in Python: Learn with Examples</em>. 1st ed. North Charleston, SC, USA: CreateSpace Independent Publishing Platform.
 </div>
 <div id="ref-knitr" class="csl-entry">
 Xie, Yihui. n.d. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
