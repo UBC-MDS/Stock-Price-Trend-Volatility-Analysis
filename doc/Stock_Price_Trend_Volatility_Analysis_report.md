@@ -89,7 +89,7 @@ analysis. The full data set can be found
 [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/data/stocks-prices-trend-volatility.csv).
 
 <table>
-<caption>Table 1. The volatility of stock prices and trends(first 10 rows).</caption>
+<caption>Table 1. The volatility of stock prices and stock symbol search interests trends(first 10 rows).</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">symbol</th>
@@ -162,7 +162,8 @@ analysis. The full data set can be found
 </tbody>
 </table>
 
-Table 1. The volatility of stock prices and trends(first 10 rows).
+Table 1. The volatility of stock prices and stock symbol search
+interests trends(first 10 rows).
 
 ## Analysis
 
@@ -187,16 +188,20 @@ stock search volume volatility for all stocks in the data. We see a
 right skewed normal shape for price change volatility and more of an
 exponential distribution for search volume volatility.
 
-<img src="../results/volatility_distribution_plots.png" alt="Figure 1. Volatility distribution" width="100%" />
+<img src="../results/volatility_distribution_plots.png" alt="Figure 1. Right skewed distribution of volatility for both stock price change and stock symbol searching volumn in histogram plots" width="100%" />
 <p class="caption">
-Figure 1. Volatility distribution
+Figure 1. Right skewed distribution of volatility for both stock price
+change and stock symbol searching volumn in histogram plots
 </p>
 
-Now we have the distributions by different sectors:
+Now we have the distributions by different sectors(different
+industries):
 
-<img src="../results/sectors_volatility_distribution_plots.png" alt="Figure 2. Volatility distribution by sectors" width="100%" />
+<img src="../results/sectors_volatility_distribution_plots.png" alt="Figure 2. Nearly all distributions of the volatility for both stock price change and stock symbol searching volumn by different industries are similar to the overall ones." width="100%" />
 <p class="caption">
-Figure 2. Volatility distribution by sectors
+Figure 2. Nearly all distributions of the volatility for both stock
+price change and stock symbol searching volumn by different industries
+are similar to the overall ones.
 </p>
 
 Above we plot histograms of the standard deviations of returns and
@@ -206,6 +211,8 @@ similar to the overall distributions for both return and search
 volatility.
 
 # Results & Discussion
+
+Here is the statistical regression results:
 
     ## 
     ## Regression Results
@@ -229,14 +236,18 @@ volatility.
     ## =================================================
     ## Note:                 *p<0.1; **p<0.05; ***p<0.01
 
-<img src="../results/regression-plot.png" alt="Figure 3. Regression" width="50%" />
+In addition, the following two figures are plotted regression results
+and plotted residuals.
+
+<img src="../results/regression-plot.png" alt="Figure 3. Regression result of showing a relationship between stock symbol search and stock weekly return, but with a very low score of R^2" width="50%" />
 <p class="caption">
-Figure 3. Regression
+Figure 3. Regression result of showing a relationship between stock
+symbol search and stock weekly return, but with a very low score of R^2
 </p>
 
-<img src="../results/residuals-plot.png" alt="Figure 4. Residuals" width="50%" />
+<img src="../results/residuals-plot.png" alt="Figure 4. Residuals are not seemingly abnormally distributed." width="50%" />
 <p class="caption">
-Figure 4. Residuals
+Figure 4. Residuals are not seemingly abnormally distributed.
 </p>
 
 Given that our p-value of 0.027 for our slope coefficient is less than
@@ -256,9 +267,11 @@ search volatility, and we do not observe any obvious change in variance
 or direction of residuals across the plot. This means that it is
 unlikely we have meaningfully violated regression assumptions.
 
-<img src="../results/sectors_stocks_prices_searchvols_reg.png" alt="Figure 5. Regression result for volatility by sectors" width="100%" />
+<img src="../results/sectors_stocks_prices_searchvols_reg.png" alt="Figure 5. Various regression results for volatility by sectors (industry fields), the plot of Communication Services shows strong relationship and the plots of some other sectors even show negative relationships." width="100%" />
 <p class="caption">
-Figure 5. Regression result for volatility by sectors
+Figure 5. Various regression results for volatility by sectors (industry
+fields), the plot of Communication Services shows strong relationship
+and the plots of some other sectors even show negative relationships.
 </p>
 
 Comparing across sectors, while the histogram distributions of
@@ -274,19 +287,24 @@ of the project where we can hopefully collect more data.
 
 # Limitations & Future Research
 
-Some of our limitations include the fact that we have one year of data
-and stocks are selected from one index only. It is unclear whether the
+Our limitations include the fact that we have one year of data and
+stocks are selected from one index only. Our analysis thus applies to
+this time frame and stock pool and it is unclear whether the
 relationship would be robust across different time periods or stock
-pools. Moreover, with respect to time, much financial analysis done in
-industry is performed in a time series manner. Given our analytical
-limitations, we leave a time series analysis of this relationship for
-future research.
+pools. Moreover, with respect to time, financial analysis done in
+industry is often performed in a time series manner. The weekly nature
+of our data may have some underlying non-linearity, such as seasonal
+changes. Moreover, there may be delay effects between trend and return
+volatility. The impacts of the potential non-linearity may have unknown
+impacts on the reliability of our analysis. Given our analytical and
+capacity limitations, we leave a time series analysis of this
+relationship for future research.
 
-We have limited features in a simple linear regression. Therefore, a
-logical next step may be to expand our features. For example, while we
-use searched stock tickers for this EDA, we can perhaps use the company
-names or other adjacent searches in a multivariate regression for our
-volatility analysis.
+Additionally we have limited features in a simple linear regression.
+Therefore, a logical next step may be to expand our feature set. For
+example, while we use searched stock tickers for this EDA, we can
+perhaps use the company names or other adjacent searches in a
+multivariate regression for our volatility analysis.
 
 It must be noted again that our simple model is explaining very little
 of the variation in return volatility. This caveat is to be expected
