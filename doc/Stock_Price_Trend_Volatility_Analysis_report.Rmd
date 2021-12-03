@@ -76,7 +76,7 @@ Above we plot histograms of the standard deviations of returns and trends of aro
 # Results & Discussion
 
 ```{r regression_results_table, echo=FALSE}
-cat(read_lines("../data/regression-results.txt"), sep = '\n')
+cat(read_lines("../results/regression-results.txt"), sep = '\n')
 ```
 
 ```{r fig_3, echo=FALSE, fig.cap="Figure 3. Regression", out.width = '50%'}

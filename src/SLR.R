@@ -20,7 +20,7 @@ main <- function(opt) {
 #  print("making txt regression results")
   stargazer(SLR, type = 'text',
             title='Regression Results',
-            out = '../data/regression-results.txt')
+            out = '../results/regression-results.txt')
 
   
   # note to save in jupyter notebook use
