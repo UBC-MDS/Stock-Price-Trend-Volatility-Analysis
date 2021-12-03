@@ -78,7 +78,7 @@ Above we plot histograms of the standard deviations of returns and trends of aro
 Here is the statistical regression results:
 
 ```{r regression_results_table, echo=FALSE}
-cat(read_lines("../data/regression-results.txt"), sep = '\n')
+cat(read_lines("../results/regression-results.txt"), sep = '\n')
 ```
 
 In addition, the following two figures are plotted regression results and plotted residuals.
