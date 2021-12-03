@@ -4,7 +4,7 @@
 
 Investment firms are increasingly looking to data science and unusual data sources to provide informational advantages to bolster their portfolio strategies. In this project, we are investigating whether Google Trends data on stock ticker names can provide insight into return volatility\*\*. Investors are often interested in understanding the volatility of stock returns. Some financial derivative trading strategies try to take advantage of changes in a stocks' volatility, as certain options are sensitive to changes in implied volatility. See a primer on option vega if you are interested! <https://www.investopedia.com/terms/v/vega.asp>
 
-Consider this project a screening exercise for whether Google Trends could be useful in volatility-based trading strategies.
+Our research question is: are Google Trends search interest volatility related to stock return volatility? Consider this project a screening exercise for whether Google Trends could be useful in volatility-based trading strategies.
 
 In order to assess the association between stock return volatility and search trend volatility, we analyse the standard deviation of weekly search trends and weekly returns for over 300 stocks in the S&P 500 over a one-year period from July 2020 to July 2021. We conduct a simple linear regression with a confidence level of 0.95 with the return volatility as the dependent variable and search trends volatility as the independent variable. Our null hypothesis is that there is no association between the two volatilities, with the alternative being that there is an association.
 
@@ -113,3 +113,7 @@ for Google Trends:
 8.  Run the following to generate the final R markdown document and knitted output file
 
 `Rscript -e "rmarkdown::render('doc/Stock_Price_Trend_Volatility_Analysis_report.Rmd', output_format = 'github_document')"`
+
+## License
+
+The source code for the site is licensed under the MIT license found [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/LICENSE)
