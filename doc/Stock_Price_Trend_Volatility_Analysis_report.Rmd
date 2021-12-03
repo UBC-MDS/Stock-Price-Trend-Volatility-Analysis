@@ -4,9 +4,9 @@ author: "Group30 - Amir Abbas Shojakhani, Julien Gordon, Helin Wang"
 date: "11/26/2021"
 bibliography: references.bib
 output: 
-  github_document:
-    toc: true
   html_document:
+    toc: true
+  github_document:
     toc: true
 ---
 
