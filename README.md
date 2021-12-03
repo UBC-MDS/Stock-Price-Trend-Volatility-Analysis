@@ -14,7 +14,7 @@ Ultimately, we find a significant coefficient of trend volatility and reject the
 
 ## Report
 
-The final report can be found [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/doc/Stock_Price_Trend_Volatility_Analysis_report.html)
+The final report can be found [here](https://ubc-mds.github.io/Stock-Price-Trend-Volatility-Analysis/doc/Stock_Price_Trend_Volatility_Analysis_report.html)
 
 ## Executing the Analysis
 
