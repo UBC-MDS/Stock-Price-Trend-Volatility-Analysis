@@ -99,9 +99,9 @@ Comparing across sectors, while the histogram distributions of volatility of sea
 
 # Limitations & Future Research
 
-Some of our limitations include the fact that we have one year of data and stocks are selected from one index only. It is unclear whether the relationship would be robust across different time periods or stock pools. Moreover, with respect to time, much financial analysis done in industry is performed in a time series manner. Given our analytical limitations, we leave a time series analysis of this relationship for future research.
+Our limitations include the fact that we have one year of data and stocks are selected from one index only. Our analysis thus applies to this time frame and stock pool and it is unclear whether the relationship would be robust across different time periods or stock pools. Moreover, with respect to time, financial analysis done in industry is often performed in a time series manner. The weekly nature of our data may have some underlying non-linearity, such as seasonal changes. Moreover, there may be delay effects between trend and return volatility. The impacts of the potential non-linearity may have unknown impacts on the reliability of our analysis. Given our analytical and capacity limitations, we leave a time series analysis of this relationship for future research.
 
-We have limited features in a simple linear regression. Therefore, a logical next step may be to expand our features. For example, while we use searched stock tickers for this EDA, we can perhaps use the company names or other adjacent searches in a multivariate regression for our volatility analysis.
+Additionally we have limited features in a simple linear regression. Therefore, a logical next step may be to expand our feature set. For example, while we use searched stock tickers for this EDA, we can perhaps use the company names or other adjacent searches in a multivariate regression for our volatility analysis.
 
 It must be noted again that our simple model is explaining very little of the variation in return volatility. This caveat is to be expected considering we are using a very simple model to understand markets which contain lots of complexity.
 
