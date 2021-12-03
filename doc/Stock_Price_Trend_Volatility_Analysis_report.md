@@ -1,3 +1,17 @@
+Stock Price Trend Volatility Analysis
+================
+Group30 - Amir Abbas Shojakhani, Julien Gordon, Helin Wang
+11/26/2021
+
+-   [Summary](#summary)
+-   [Introduction](#introduction)
+-   [Methods](#methods)
+    -   [Data](#data)
+    -   [Analysis](#analysis)
+-   [Results & Discussion](#results--discussion)
+-   [Limitations & Future Research](#limitations--future-research)
+    -   [References](#references)
+
 # Summary
 
 In this project, we analyze whether there is any association between the
@@ -88,79 +102,18 @@ table is a sample of 10 rows of data which is ultimately used for our
 analysis. The full data set can be found
 [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/data/stocks-prices-trend-volatility.csv).
 
-<table>
-<caption>Table 1. The volatility of stock prices and trends(first 10 rows).</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">symbol</th>
-<th style="text-align: left;">Sector</th>
-<th style="text-align: right;">price_change_pct</th>
-<th style="text-align: right;">pct_period_search_vol</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">AAL</td>
-<td style="text-align: left;">Industrials</td>
-<td style="text-align: right;">0.0628100</td>
-<td style="text-align: right;">0.8109703</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AAP</td>
-<td style="text-align: left;">Consumer Discretionary</td>
-<td style="text-align: right;">0.0378506</td>
-<td style="text-align: right;">0.5210795</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">AAPL</td>
-<td style="text-align: left;">Information Technology</td>
-<td style="text-align: right;">0.0410338</td>
-<td style="text-align: right;">0.8915568</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ABBV</td>
-<td style="text-align: left;">Health Care</td>
-<td style="text-align: right;">0.0307708</td>
-<td style="text-align: right;">0.8473470</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ABC</td>
-<td style="text-align: left;">Health Care</td>
-<td style="text-align: right;">0.0359477</td>
-<td style="text-align: right;">0.2220668</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ABMD</td>
-<td style="text-align: left;">Health Care</td>
-<td style="text-align: right;">0.0474028</td>
-<td style="text-align: right;">2.4691348</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ABT</td>
-<td style="text-align: left;">Health Care</td>
-<td style="text-align: right;">0.0275525</td>
-<td style="text-align: right;">0.8239577</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ACN</td>
-<td style="text-align: left;">Information Technology</td>
-<td style="text-align: right;">0.0271709</td>
-<td style="text-align: right;">0.6953271</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">ADBE</td>
-<td style="text-align: left;">Information Technology</td>
-<td style="text-align: right;">0.0395646</td>
-<td style="text-align: right;">0.9256184</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ADI</td>
-<td style="text-align: left;">Information Technology</td>
-<td style="text-align: right;">0.0343544</td>
-<td style="text-align: right;">0.6095752</td>
-</tr>
-</tbody>
-</table>
+| symbol | Sector                 | price_change_pct | pct_period_search_vol |
+|:-------|:-----------------------|-----------------:|----------------------:|
+| AAL    | Industrials            |        0.0628100 |             0.8109703 |
+| AAP    | Consumer Discretionary |        0.0378506 |             0.5210795 |
+| AAPL   | Information Technology |        0.0410338 |             0.8915568 |
+| ABBV   | Health Care            |        0.0307708 |             0.8473470 |
+| ABC    | Health Care            |        0.0359477 |             0.2220668 |
+| ABMD   | Health Care            |        0.0474028 |             2.4691348 |
+| ABT    | Health Care            |        0.0275525 |             0.8239577 |
+| ACN    | Information Technology |        0.0271709 |             0.6953271 |
+| ADBE   | Information Technology |        0.0395646 |             0.9256184 |
+| ADI    | Information Technology |        0.0343544 |             0.6095752 |
 
 Table 1. The volatility of stock prices and trends(first 10 rows).
 
@@ -187,17 +140,11 @@ stock search volume volatility for all stocks in the data. We see a
 right skewed normal shape for price change volatility and more of an
 exponential distribution for search volume volatility.
 
-<img src="../results/volatility_distribution_plots.png" alt="Figure 1. Volatility distribution" width="100%" />
-<p class="caption">
-Figure 1. Volatility distribution
-</p>
+<img src="../results/volatility_distribution_plots.png" title="Figure 1. Volatility distribution" alt="Figure 1. Volatility distribution" width="100%" />
 
 Now we have the distributions by different sectors:
 
-<img src="../results/sectors_volatility_distribution_plots.png" alt="Figure 2. Volatility distribution by sectors" width="100%" />
-<p class="caption">
-Figure 2. Volatility distribution by sectors
-</p>
+<img src="../results/sectors_volatility_distribution_plots.png" title="Figure 2. Volatility distribution by sectors" alt="Figure 2. Volatility distribution by sectors" width="100%" />
 
 Above we plot histograms of the standard deviations of returns and
 trends of around 330 stocks selected from the S&P500. We broadly observe
@@ -229,15 +176,9 @@ volatility.
     ## =================================================
     ## Note:                 *p<0.1; **p<0.05; ***p<0.01
 
-<img src="../results/regression-plot.png" alt="Figure 3. Regression" width="50%" />
-<p class="caption">
-Figure 3. Regression
-</p>
+<img src="../results/regression-plot.png" title="Figure 3. Regression" alt="Figure 3. Regression" width="50%" />
 
-<img src="../results/residuals-plot.png" alt="Figure 4. Residuals" width="50%" />
-<p class="caption">
-Figure 4. Residuals
-</p>
+<img src="../results/residuals-plot.png" title="Figure 4. Residuals" alt="Figure 4. Residuals" width="50%" />
 
 Given that our p-value of 0.027 for our slope coefficient is less than
 our significance level of 0.05, we find a significant coefficient of
@@ -256,10 +197,7 @@ search volatility, and we do not observe any obvious change in variance
 or direction of residuals across the plot. This means that it is
 unlikely we have meaningfully violated regression assumptions.
 
-<img src="../results/sectors_stocks_prices_searchvols_reg.png" alt="Figure 5. Regression result for volatility by sectors" width="100%" />
-<p class="caption">
-Figure 5. Regression result for volatility by sectors
-</p>
+<img src="../results/sectors_stocks_prices_searchvols_reg.png" title="Figure 5. Regression result for volatility by sectors" alt="Figure 5. Regression result for volatility by sectors" width="100%" />
 
 Comparing across sectors, while the histogram distributions of
 volatility of searches and returns seemed fairly similar to the overall
@@ -274,19 +212,24 @@ of the project where we can hopefully collect more data.
 
 # Limitations & Future Research
 
-Some of our limitations include the fact that we have one year of data
-and stocks are selected from one index only. It is unclear whether the
+Our limitations include the fact that we have one year of data and
+stocks are selected from one index only. Our analysis thus applies to
+this time frame and stock pool and it is unclear whether the
 relationship would be robust across different time periods or stock
-pools. Moreover, with respect to time, much financial analysis done in
-industry is performed in a time series manner. Given our analytical
-limitations, we leave a time series analysis of this relationship for
-future research.
+pools. Moreover, with respect to time, financial analysis done in
+industry is often performed in a time series manner. The weekly nature
+of our data may have some underlying non-linearity, such as seasonal
+changes. Moreover, there may be delay effects between trend and return
+volatility. The impacts of the potential non-linearity may have unknown
+impacts on the reliability of our analysis. Given our analytical and
+capacity limitations, we leave a time series analysis of this
+relationship for future research.
 
-We have limited features in a simple linear regression. Therefore, a
-logical next step may be to expand our features. For example, while we
-use searched stock tickers for this EDA, we can perhaps use the company
-names or other adjacent searches in a multivariate regression for our
-volatility analysis.
+Additionally we have limited features in a simple linear regression.
+Therefore, a logical next step may be to expand our feature set. For
+example, while we use searched stock tickers for this EDA, we can
+perhaps use the company names or other adjacent searches in a
+multivariate regression for our volatility analysis.
 
 It must be noted again that our simple model is explaining very little
 of the variation in return volatility. This caveat is to be expected
@@ -298,34 +241,75 @@ investigation into the use of Google Trends for Financial Analysis.
 
 ## References
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-pandasprofiling2019" class="csl-entry">
+
 Brugman, Simon. 2019. “<span class="nocase">pandas-profiling:
 Exploratory Data Analysis for Python</span>.”
 <https://github.com/pandas-profiling/pandas-profiling>.
 
+</div>
+
+<div id="ref-docopt" class="csl-entry">
+
 de Jonge, Edwin. 2020. *Docopt: Command-Line Interface Specification
 Language*. <https://CRAN.R-project.org/package=docopt>.
+
+</div>
+
+<div id="ref-mckinney-proc-scipy-2010" class="csl-entry">
 
 McKinney, Wes. 2010. “Data Structures for Statistical Computing in
 Python.” In *Proceedings of the 9th Python in Science Conference*,
 edited by Stéfan van der Walt and Jarrod Millman, 56–61.
-https://doi.org/[ 10.25080/Majora-92bf1922-00a](https://doi.org/ 10.25080/Majora-92bf1922-00a ).
+[https://doi.org/ 10.25080/Majora-92bf1922-00a
+](https://doi.org/ 10.25080/Majora-92bf1922-00a ).
+
+</div>
+
+<div id="ref-googletrends" class="csl-entry">
 
 official. n.d.a. *Google Trends Search*.
 <https://trends.google.com/trends/?geo=CA>.
 
+</div>
+
+<div id="ref-yahoofinance" class="csl-entry">
+
 ———. n.d.b. *Yahoo Finance Search*. <https://ca.finance.yahoo.com/>.
+
+</div>
+
+<div id="ref-python" class="csl-entry">
 
 Python Core Team. 2019. *<span class="nocase">Python: A dynamic, open
 source programming language</span>*. Python Software Foundation.
 <https://www.python.org/>.
 
+</div>
+
+<div id="ref-R" class="csl-entry">
+
 R Core Team. 2021. *R: A Language and Environment for Statistical
 Computing*. Vienna, Austria: R Foundation for Statistical Computing.
 <https://www.R-project.org/>.
+
+</div>
+
+<div id="ref-selenium" class="csl-entry">
 
 Salunke, Sagar Shivaji. 2014. *Selenium Webdriver in Python: Learn with
 Examples*. 1st ed. North Charleston, SC, USA: CreateSpace Independent
 Publishing Platform.
 
+</div>
+
+<div id="ref-knitr" class="csl-entry">
+
 Xie, Yihui. n.d. *Knitr: A General-Purpose Package for Dynamic Report
 Generation in r*. <https://yihui.org/knitr/>.
+
+</div>
+
+</div>
