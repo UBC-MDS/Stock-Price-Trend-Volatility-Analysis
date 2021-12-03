@@ -51,7 +51,7 @@ We then take the standard deviation of all of the weekly values by stock, so tha
 stock_price_trend_volatility_df <- read_csv("../data/processed/stocks-prices-trend-volatility.csv") |> 
   head(10)
 kable(stock_price_trend_volatility_df,
-      caption = "Table 1. The volatility of stock prices and trends(first 10 rows).",
+      caption = "Table 1. The volatility of stock prices and stock symbol search interests trends(first 10 rows).",
       format = "markdown")
 ```
 
@@ -81,7 +81,7 @@ Here is the statistical regression results:
 cat(read_lines("../data/regression-results.txt"), sep = '\n')
 ```
 
-In addition, the following two figures are plotted regression result and residuals.
+In addition, the following two figures are plotted regression results and plotted residuals.
 
 ```{r fig_3, echo=FALSE, fig.cap="Figure 3. Regression result of showing a relationship between stock symbol search and stock weekly return, but with a very low score of R^2", out.width = '50%'}
 knitr::include_graphics("../results/regression-plot.png")
