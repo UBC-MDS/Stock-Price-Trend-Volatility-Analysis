@@ -20,7 +20,7 @@ main <- function(opt) {
 #  print("making txt regression results")
   stargazer(SLR, type = 'text',
             title='Regression Results',
-            out = '../results/regression-results.txt')
+            out = 'results/regression-results.txt')
 
   
   # note to save in jupyter notebook use
@@ -40,7 +40,7 @@ main <- function(opt) {
 
     
 #  print("saving plot")  
-  ggsave("../results/regression-plot.png")
+  ggsave("results/regression-plot.png")
 
 
 # add residuals    
@@ -59,7 +59,7 @@ main <- function(opt) {
       ggtitle("Residuals plot")
   
   print("saving plot")  
-  ggsave("../results/residuals-plot.png")
+  ggsave("results/residuals-plot.png")
 }
 
 print("loading libraries")

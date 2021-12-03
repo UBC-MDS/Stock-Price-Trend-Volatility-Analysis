@@ -48,7 +48,7 @@ Our data cleaning process involved:
 We then take the standard deviation of all of the weekly values by stock, so that our final dataset is one row per stock. The following table is a sample of 10 rows of data which is ultimately used for our analysis. The full data set can be found [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/data/stocks-prices-trend-volatility.csv).
 
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
-stock_price_trend_volatility_df <- read_csv("../data/stocks-prices-trend-volatility.csv") |> 
+stock_price_trend_volatility_df <- read_csv("../data/processed/stocks-prices-trend-volatility.csv") |> 
   head(10)
 kable(stock_price_trend_volatility_df,
       caption = "Table 1. The volatility of stock prices and trends(first 10 rows).",
