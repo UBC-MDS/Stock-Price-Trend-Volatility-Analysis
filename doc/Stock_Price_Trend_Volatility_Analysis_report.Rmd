@@ -87,7 +87,7 @@ In addition, the following two figures are plotted regression result and residua
 knitr::include_graphics("../results/regression-plot.png")
 ```
 
-```{r fig_4, echo=FALSE, fig.cap="Figure 4. Residuals", out.width = '50%'}
+```{r fig_4, echo=FALSE, fig.cap="Figure 4. Residuals are not seemingly abnormally distributed.", out.width = '50%'}
 knitr::include_graphics("../results/residuals-plot.png")
 ```
 
