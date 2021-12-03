@@ -83,7 +83,7 @@ cat(read_lines("../data/regression-results.txt"), sep = '\n')
 
 In addition, the following two figures are plotted regression result and residuals.
 
-```{r fig_3, echo=FALSE, fig.cap="Figure 3. Regression", out.width = '50%'}
+```{r fig_3, echo=FALSE, fig.cap="Figure 3. Regression result of showing a relationship between stock symbol search and stock weekly return, but with a very low score of R^2", out.width = '50%'}
 knitr::include_graphics("../results/regression-plot.png")
 ```
 
