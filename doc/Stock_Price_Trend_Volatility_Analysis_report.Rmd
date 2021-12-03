@@ -4,11 +4,11 @@ author: "Group30 - Amir Abbas Shojakhani, Julien Gordon, Helin Wang"
 date: "11/26/2021"
 bibliography: references.bib
 output: 
-  html_document:
+  md_document: 
     toc: true
   github_document:
     toc: true
-  md_document: 
+  html_document:
     toc: true
 ---
 
@@ -95,7 +95,7 @@ Given that our p-value of 0.027 for our slope coefficient is less than our signi
 
 Our residual plot demonstrates that our residuals are not seemingly abnormally distributed. We see broad normal distribution around 0 given search volatility, and we do not observe any obvious change in variance or direction of residuals across the plot. This means that it is unlikely we have meaningfully violated regression assumptions.
 
-```{r fig_5, echo=FALSE, fig.cap="Figure 5. Regression result for volatility by sectors", out.width = '100%'}
+```{r fig_5, echo=FALSE, fig.cap="Figure 5. Various regression results for volatility by sectors (industry fields), the plot of Communication Services shows strong relationship and the plots of some other sectors even show negative relationships.", out.width = '100%'}
 knitr::include_graphics("../results/sectors_stocks_prices_searchvols_reg.png")
 ```
 
