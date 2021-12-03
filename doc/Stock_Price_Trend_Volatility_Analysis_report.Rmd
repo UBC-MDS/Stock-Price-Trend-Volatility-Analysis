@@ -61,13 +61,13 @@ In order to assess the inferential question of the association between stock ret
 
 The following plot show the distributions of price change volatility and stock search volume volatility for all stocks in the data. We see a right skewed normal shape for price change volatility and more of an exponential distribution for search volume volatility.
 
-```{r fig_1, echo=FALSE, fig.cap="Figure 1. Right skewed distribution of volatility in histogram plots", out.width = '100%'}
+```{r fig_1, echo=FALSE, fig.cap="Figure 1. Right skewed distribution of volatility for both stock price change and stock symbol searching volumn in histogram plots", out.width = '100%'}
 knitr::include_graphics("../results/volatility_distribution_plots.png")
 ```
 
-Now we have the distributions by different sectors:
+Now we have the distributions by different sectors(different industries):
 
-```{r fig_2, echo=FALSE, fig.cap="Figure 2. Volatility distribution by sectors", out.width = '100%'}
+```{r fig_2, echo=FALSE, fig.cap="Figure 2. Nearly all distributions of the volatility for both stock price change and stock symbol searching volumn by different industries are similar to the overall ones.", out.width = '100%'}
 knitr::include_graphics("../results/sectors_volatility_distribution_plots.png")
 ```
 
