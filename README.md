@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Stock-Price-Trend-Volatility-Analysis
 
 ## Project Overview
@@ -94,25 +95,25 @@ for Google Trends:
 
     The following script collects a file containing the stocks price and trends weekly data to generate a combined .csv file along with their weekly change percentages
 
-`python generate-stock_price_trend_df.py --in_file=<in_file> --out_file=<out_file>`
+`python src/generate-stock_price_trend_df.py --in_file=data/processed/prices_trends_merged_data.csv --out_file=data/processed/stocks-prices-trends-change-percentages.csv`
 
 5.  Run the following to calculate weekly volatility information per stock. The output will be one row per stock.
 
     The following script collects a file containing the stocks price, trends weekly changes and percentages data to generate a .csv file containing the price and volume search volatilites for each stock.
 
-`python generate-stock_price_trend_volatility_df.py --in_file=<in_file> --out_file=<out_file>`
+`python src/generate-stock_price_trend_volatility_df.py --in_file=data/processed/stocks-prices-trends-change-percentages.csv --out_file=data/processed/stocks-prices-trend-volatility.csv`
 
 6.  Run the following to generate exploratory data analysis plots
 
-`python generate-plot-images.py --in_file=<in_file> --out_folder=<out_folder>`
+`python src/generate-plot-images.py --in_file=data/processed/stocks-prices-trend-volatility.csv --out_folder=results`
 
 7.  Run the following to generate regression results
 
-`Rscript SLR.R --csv_path=<csv_path>`
+`Rscript src/SLR.R --csv_path=data/processed/stocks-prices-trend-volatility.csv`
 
 8.  Run the following to generate the final R markdown document and knitted output file
 
-`Rscript -e "rmarkdown::render('doc/Stock_Price_Trend_Volatility_Analysis_report.Rmd', output_format = 'github_document')"`
+`Rscript -e "rmarkdown::render('doc/Stock_Price_Trend_Volatility_Analysis_report.Rmd', output_format = 'all')"`
 
 ## License
 

@@ -270,8 +270,7 @@ Language*. <https://CRAN.R-project.org/package=docopt>.
 McKinney, Wes. 2010. “Data Structures for Statistical Computing in
 Python.” In *Proceedings of the 9th Python in Science Conference*,
 edited by Stéfan van der Walt and Jarrod Millman, 56–61.
-[https://doi.org/ 10.25080/Majora-92bf1922-00a
-](https://doi.org/ 10.25080/Majora-92bf1922-00a ).
+https://doi.org/[ 10.25080/Majora-92bf1922-00a](https://doi.org/ 10.25080/Majora-92bf1922-00a ).
 
 </div>
 
