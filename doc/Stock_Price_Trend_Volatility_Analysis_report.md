@@ -141,12 +141,12 @@ stock search volume volatility for all stocks in the data. We see a
 right skewed normal shape for price change volatility and more of an
 exponential distribution for search volume volatility.
 
-<img src="../results/volatility_distribution_plots.png" title="Figure 1. Right skewed distribution of volatility for both stock price change and stock symbol searching volumn in histogram plots" alt="Figure 1. Right skewed distribution of volatility for both stock price change and stock symbol searching volumn in histogram plots" width="100%" />
+<img src="../results/volatility_distribution_plots.png" title="Figure 1. Right skewed distribution of volatility for both stock price change and stock symbol searching volume in histogram plots" alt="Figure 1. Right skewed distribution of volatility for both stock price change and stock symbol searching volume in histogram plots" width="100%" />
 
 Now we have the distributions by different sectors(different
 industries):
 
-<img src="../results/sectors_volatility_distribution_plots.png" title="Figure 2. Nearly all distributions of the volatility for both stock price change and stock symbol searching volumn by different industries are similar to the overall ones." alt="Figure 2. Nearly all distributions of the volatility for both stock price change and stock symbol searching volumn by different industries are similar to the overall ones." width="100%" />
+<img src="../results/sectors_volatility_distribution_plots.png" title="Figure 2. Nearly all distributions of the volatility for both stock price change and stock symbol searching volume by different industries are similar to the overall ones." alt="Figure 2. Nearly all distributions of the volatility for both stock price change and stock symbol searching volume by different industries are similar to the overall ones." width="100%" />
 
 Above we plot histograms of the standard deviations of returns and
 trends of around 330 stocks selected from the S&P500. We broadly observe
