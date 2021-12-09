@@ -6,7 +6,7 @@ all: data/processed/prices_trends_merged_data.csv data/processed/stocks-prices-t
 
 # download data
 data/processed/prices_trends_merged_data.csv: src/download-data.py
-	python src/download-data.py --url=https://raw.githubusercontent.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/main/data/prices_trends_merged_data.csv --out_file=data/processed/prices_trends_merged_data.csv
+	python src/download-data.py --url=https://raw.githubusercontent.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/main/data/processed/prices_trends_merged_data.csv --out_file=data/processed/prices_trends_merged_data.csv
 
 # generate stocks price and trends weekly data
 data/processed/stocks-prices-trends-change-percentages.csv: src/generate-stock_price_trend_df.py
