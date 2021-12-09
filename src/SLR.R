@@ -8,6 +8,13 @@ Options:
 --<csv_path>=<csv_path>   One stock per row csv relative path (this is required)
 " -> doc
 
+print("loading libraries")
+library(docopt)
+library(tidyverse)
+library(stargazer)
+
+print("libraries loaded")
+
 main <- function(opt) {
   
   print("reading data")
@@ -30,7 +37,7 @@ main <- function(opt) {
 
 #  generate regression plot   
 #  print("making plot 1")
-  plot <- data |> ggplot(aes(x = pct_period_search_vol, y = price_change_pct)) + 
+  plot <- data %>% ggplot(aes(x = pct_period_search_vol, y = price_change_pct)) + 
     geom_point() +
     stat_smooth(method = "lm", col = "red") +
     ylab("Return volatility (StDev of Weekly Returns (%))") +
@@ -50,7 +57,7 @@ main <- function(opt) {
 
 # generate and save residual plot    
 #  print("making resid plot")
-  resid_plot <- data_resid |> ggplot(aes(x = pct_period_search_vol, y = residuals)) +
+  resid_plot <- data_resid %>% ggplot(aes(x = pct_period_search_vol, y = residuals)) +
       geom_point() +
       stat_smooth(method = "lm", col = "red") +
       ylab("Residuals") +
@@ -61,13 +68,6 @@ main <- function(opt) {
   print("saving plot")  
   ggsave("results/residuals-plot.png")
 }
-
-print("loading libraries")
-library(docopt)
-library(tidyverse)
-library(stargazer)
-
-print("libraries loaded")
 
 opt <- docopt(doc)
 
