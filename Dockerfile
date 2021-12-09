@@ -18,6 +18,7 @@ RUN conda install mamba -n base -c conda-forge
 RUN mamba install --quiet -y -c conda-forge \
     "numpy=1.21.*" \
     "pandas=1.3.*" \
+    "pandas-profiling>=3.1.*" \
     "requests=2.26.*" \
     "selenium=3.141.0" \
     "altair=4.1.*" \
@@ -66,7 +67,7 @@ RUN set -x && \
     fi;
 
 # To run the analysis please install docker and run the below command at the terminal/command line
-# docker run --rm -v /$(pwd):/home/rstudio/stock_price_volatility_analysis stock_price_volatility_analysis make -C /home/rstudio/stock_price_volatility_analysis all
+# docker run --rm -v /$(pwd):/home/analysis/stock_price_volatility_analysis stock_price_volatility_analysis make -C /home/analysis/stock_price_volatility_analysis all
 
 # To reset the repo and remove all result files, run the below command at the terminal/command line
-# docker run --rm -v /$(pwd):/home/rstudio/stock_price_volatility_analysis stock_price_volatility_analysis make -C /home/rstudio/stock_price_volatility_analysis clean
+# docker run --rm -v /$(pwd):/home/analysis/stock_price_volatility_analysis stock_price_volatility_analysis make -C /home/analysis/stock_price_volatility_analysis clean
