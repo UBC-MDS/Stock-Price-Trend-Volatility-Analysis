@@ -8,7 +8,7 @@ FROM jupyter/scipy-notebook
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 USER root
 
-# Update
+# Update All
 RUN apt-get update -y
 
 # Install mamba
