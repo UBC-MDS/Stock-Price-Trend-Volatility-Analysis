@@ -45,7 +45,9 @@ python dependencies:
   
 ### Dependency diagram
 
-![Makefile1graph](Makefile.png)
+<img src="Makefile.png" alt="drawing" style="height:60px;"/>
+
+Click [here](https://ubc-mds.github.io/Stock-Price-Trend-Volatility-Analysis/Makefile.png) for a bigger view.
 
 ### Process flow chart
 
