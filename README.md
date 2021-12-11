@@ -119,6 +119,16 @@ for Google Trends:
 
 `Rscript -e "rmarkdown::render('doc/Stock_Price_Trend_Volatility_Analysis_report.Rmd', output_format = 'all')"`
 
+## Using Docker to run analysis
+
+To run the analysis, please install Docker and run the below command at the terminal/command line from the root directory of this project:
+
+`docker run --rm -v /$(pwd):/home/analysis/stock_price_volatility_analysis volanalysis/stock-price-trend-vol-analysis make -C /home/analysis/stock_price_volatility_analysis all`
+
+To reset the repo and remove all result files, run the below command at the terminal/command line from the root directory of this project:
+
+`docker run --rm -v /$(pwd):/home/analysis/stock_price_volatility_analysis volanalysis/stock-price-trend-vol-analysis make -C /home/analysis/stock_price_volatility_analysis clean`
+
 ## License
 
 The source code for the site is licensed under the MIT license found [here](https://github.com/UBC-MDS/Stock-Price-Trend-Volatility-Analysis/blob/main/LICENSE)
