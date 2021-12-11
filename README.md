@@ -42,6 +42,10 @@ python dependencies:
   - stargazer 5.2.2
 
   Additionally you could use the env.yaml and R_dependencies files.
+  
+### Dependency diagram
+
+![Makefile1graph](Makefile.png)
 
 ### Process flow chart
 
